@@ -1,0 +1,17 @@
+{
+  "name": "gulp",
+  "homepage": "https://github.com/wfercosta/symfony2_study_app",
+  "authors": [
+    "Wander Costa <wanderfernando@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

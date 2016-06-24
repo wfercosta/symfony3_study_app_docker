@@ -1,0 +1,28 @@
+{
+  "global" : {
+    "bower" : {
+      "components" : {
+        "dir" : "./bower_components"
+      }
+    }
+  },
+  "css" : {
+    "dist": {
+        "dir": "../web/dist/css"
+      , "filename": "site.css"
+      , "filename_libs": "libs.css"
+    }
+  },
+  "fonts" : {
+    "dist" : {
+      "dir": "../web/dist/fonts"
+    }
+  },
+  "js" : {
+    "dist": {
+        "dir": "../web/dist/js"
+      , "filename": "app.js"
+      , "filename_libs": "libs.js"
+    }
+  }
+}
