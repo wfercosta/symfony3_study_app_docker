@@ -3,14 +3,17 @@ FROM centos:6
 ######################################################################
 # Realiza a Instalação dos pacotes
 ######################################################################
-RUN yum update -y
-RUN yum install wget \
-                lsof \
-                vim \
-                java-1.8.0-openjdk \
-                openssh-server \
-                mysql-server \
-                python-setuptools -y
+RUN yum -y update
+RUN yum -y install epel-release
+RUN yum -y install  wget \
+                    lsof \
+                    vim \
+                    java-1.8.0-openjdk \
+                    openssh-server \
+                    mysql-server \
+                    python-setuptools \
+                    redis \
+                && yum clean all
 
 ######################################################################
 # Modifica a senha padrão do usuário root
@@ -48,6 +51,13 @@ RUN mkdir -p /root/.ssh/ && touch /root/.ssh/authorized_keys
 RUN sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd
 
 ######################################################################
+# Configura o serviço de SSH
+######################################################################
+
+ADD config/redis/redis.conf /etc/
+
+
+######################################################################
 # Configura o servico do Supervisor
 ######################################################################
 RUN easy_install supervisor && \
@@ -56,9 +66,10 @@ RUN easy_install supervisor && \
 
 RUN echo -e '[program:sshd]\ncommand=/usr/sbin/sshd -D\n\n' >> /etc/supervisor/supervisord.conf
 RUN echo -e '[program:mysqld]\ncommand=/etc/init.d/mysqld restart \n\n' >> /etc/supervisor/supervisord.conf
+RUN echo -e '[program:redis]\ncommand=/usr/sbin/redis-server /etc/redis.conf\nautostart=true\nautorestart=true\nuser=root\nstdout_logfile=/var/log/redis/stdout.log\nstderr_logfile=/var/log/redis/stderr.log\n\n' >> /etc/supervisor/supervisord.conf
 
 ######################################################################
 # Abre as portas pré-definidas e inicializa os serviços
 ######################################################################
-EXPOSE 81 22 3306
+EXPOSE 81 22 3306 6379
 CMD exec supervisord -n
