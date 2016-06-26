@@ -15,4 +15,4 @@ docker run -i -t \
 	-d $DOCKER_TAG
 
 DOCKER_IP=`docker-machine ls | grep default | awk -F / '{print $3}' | awk -F : '{print $1}'`
-echo "Para acessar o container  $DOCKER_TAG, usar os enedereço: http://$DOCKER_IP:<port>"
+echo "Para acessar o container $DOCKER_TAG, usar os enedereço: $DOCKER_IP"
