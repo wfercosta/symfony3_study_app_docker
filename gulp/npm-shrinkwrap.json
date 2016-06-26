@@ -1441,10 +1441,110 @@
       "from": "graceful-readlink@>=1.0.0",
       "resolved": "https://registry.npmjs.org/graceful-readlink/-/graceful-readlink-1.0.1.tgz"
     },
+    "gulp": {
+      "version": "3.9.1",
+      "from": "gulp@latest",
+      "resolved": "https://registry.npmjs.org/gulp/-/gulp-3.9.1.tgz"
+    },
+    "gulp-coffee": {
+      "version": "2.3.2",
+      "from": "gulp-coffee@latest",
+      "resolved": "https://registry.npmjs.org/gulp-coffee/-/gulp-coffee-2.3.2.tgz",
+      "dependencies": {
+        "readable-stream": {
+          "version": "1.0.34",
+          "from": "readable-stream@>=1.0.33-1 <1.1.0-0",
+          "resolved": "https://registry.npmjs.org/readable-stream/-/readable-stream-1.0.34.tgz"
+        },
+        "through2": {
+          "version": "0.6.5",
+          "from": "through2@>=0.6.3 <0.7.0",
+          "resolved": "https://registry.npmjs.org/through2/-/through2-0.6.5.tgz"
+        }
+      }
+    },
+    "gulp-concat": {
+      "version": "2.6.0",
+      "from": "gulp-concat@latest",
+      "resolved": "https://registry.npmjs.org/gulp-concat/-/gulp-concat-2.6.0.tgz",
+      "dependencies": {
+        "readable-stream": {
+          "version": "1.0.34",
+          "from": "readable-stream@>=1.0.33-1 <1.1.0-0",
+          "resolved": "https://registry.npmjs.org/readable-stream/-/readable-stream-1.0.34.tgz"
+        },
+        "through2": {
+          "version": "0.6.5",
+          "from": "through2@>=0.6.3 <0.7.0",
+          "resolved": "https://registry.npmjs.org/through2/-/through2-0.6.5.tgz"
+        }
+      }
+    },
+    "gulp-connect": {
+      "version": "4.1.0",
+      "from": "gulp-connect@latest",
+      "resolved": "https://registry.npmjs.org/gulp-connect/-/gulp-connect-4.1.0.tgz"
+    },
+    "gulp-sass": {
+      "version": "2.3.2",
+      "from": "gulp-sass@latest",
+      "resolved": "https://registry.npmjs.org/gulp-sass/-/gulp-sass-2.3.2.tgz",
+      "dependencies": {
+        "source-map": {
+          "version": "0.5.6",
+          "from": "source-map@>=0.5.1 <0.6.0",
+          "resolved": "https://registry.npmjs.org/source-map/-/source-map-0.5.6.tgz"
+        },
+        "vinyl-sourcemaps-apply": {
+          "version": "0.2.1",
+          "from": "vinyl-sourcemaps-apply@>=0.2.0 <0.3.0",
+          "resolved": "https://registry.npmjs.org/vinyl-sourcemaps-apply/-/vinyl-sourcemaps-apply-0.2.1.tgz"
+        }
+      }
+    },
+    "gulp-uglify": {
+      "version": "1.5.4",
+      "from": "gulp-uglify@latest",
+      "resolved": "https://registry.npmjs.org/gulp-uglify/-/gulp-uglify-1.5.4.tgz",
+      "dependencies": {
+        "source-map": {
+          "version": "0.5.6",
+          "from": "source-map@>=0.5.1 <0.6.0",
+          "resolved": "https://registry.npmjs.org/source-map/-/source-map-0.5.6.tgz"
+        },
+        "vinyl-sourcemaps-apply": {
+          "version": "0.2.1",
+          "from": "vinyl-sourcemaps-apply@>=0.2.0 <0.3.0",
+          "resolved": "https://registry.npmjs.org/vinyl-sourcemaps-apply/-/vinyl-sourcemaps-apply-0.2.1.tgz"
+        }
+      }
+    },
     "gulp-util": {
       "version": "3.0.7",
       "from": "gulp-util@latest",
       "resolved": "https://registry.npmjs.org/gulp-util/-/gulp-util-3.0.7.tgz"
+    },
+    "gulp-watch": {
+      "version": "4.3.8",
+      "from": "gulp-watch@latest",
+      "resolved": "https://registry.npmjs.org/gulp-watch/-/gulp-watch-4.3.8.tgz",
+      "dependencies": {
+        "isarray": {
+          "version": "1.0.0",
+          "from": "isarray@~1.0.0",
+          "resolved": "https://registry.npmjs.org/isarray/-/isarray-1.0.0.tgz"
+        },
+        "object-assign": {
+          "version": "4.1.0",
+          "from": "object-assign@>=4.1.0 <5.0.0",
+          "resolved": "https://registry.npmjs.org/object-assign/-/object-assign-4.1.0.tgz"
+        },
+        "readable-stream": {
+          "version": "2.1.4",
+          "from": "readable-stream@>=2.0.1 <3.0.0",
+          "resolved": "https://registry.npmjs.org/readable-stream/-/readable-stream-2.1.4.tgz"
+        }
+      }
     },
     "gulplog": {
       "version": "1.0.0",
@@ -2381,6 +2481,11 @@
           "resolved": "https://registry.npmjs.org/qs/-/qs-6.1.0.tgz"
         }
       }
+    },
+    "require-dir": {
+      "version": "0.3.0",
+      "from": "require-dir@latest",
+      "resolved": "https://registry.npmjs.org/require-dir/-/require-dir-0.3.0.tgz"
     },
     "require-main-filename": {
       "version": "1.0.1",
