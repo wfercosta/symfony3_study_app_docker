@@ -51,11 +51,9 @@ RUN mkdir -p /root/.ssh/ && touch /root/.ssh/authorized_keys
 RUN sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd
 
 ######################################################################
-# Configura o serviço de SSH
+# Configura o serviço do REDIS
 ######################################################################
-
 ADD config/redis/redis.conf /etc/
-
 
 ######################################################################
 # Configura o servico do Supervisor
