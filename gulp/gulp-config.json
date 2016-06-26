@@ -8,19 +8,19 @@
   },
   "css" : {
     "dist": {
-        "dir": "../web/dist/css"
+        "dir": "../sf-app/web/dist/css"
       , "filename": "site.css"
       , "filename_libs": "libs.css"
     }
   },
   "fonts" : {
     "dist" : {
-      "dir": "../web/dist/fonts"
+      "dir": "../sf-app/web/dist/fonts"
     }
   },
   "js" : {
     "dist": {
-        "dir": "../web/dist/js"
+        "dir": "../sf-app/web/dist/js"
       , "filename": "app.js"
       , "filename_libs": "libs.js"
     }
