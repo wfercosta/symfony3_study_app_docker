@@ -6,7 +6,7 @@ var gulp = require('gulp')
 ;
 
 gulp.task('compile:sass', function() {
-  gulp.src('styles/**/*.scss')
+  gulp.src('src/scss/**/*.scss')
   .pipe(sass({style: 'expanded'}))
   .on('error', gutil.log)
   .pipe(concat(config.css.dist.filename))

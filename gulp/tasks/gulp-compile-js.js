@@ -7,7 +7,7 @@ var gulp = require('gulp')
 ;
 
 gulp.task('compile:js', function() {
-  gulp.src('scripts/**/*.js')
+  gulp.src('src/js/**/*.js')
   .pipe(uglify()).on('error', gutil.log)
   .pipe(concat(config.js.dist.filename))
   .pipe(gulp.dest(config.js.dist.dir))

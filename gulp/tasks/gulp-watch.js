@@ -6,11 +6,11 @@ var gulp = require('gulp')
 
 gulp.task('watch', function () {
 
-   watch('scripts/**/*.js', function () {
+   watch('src/js/**/*.js', function () {
        gulp.start('compile:js');
    });
 
-   watch('styles/**/*.scss', function () {
+   watch('src/scss/**/*.scss', function () {
        gulp.start('compile:sass');
    });
 });
