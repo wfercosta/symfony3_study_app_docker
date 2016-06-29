@@ -16,6 +16,7 @@ class BlogPost
     private $title;
 
     /**
+     *  @Assert\NotBlank()
      * @var string
      */
     private $content;

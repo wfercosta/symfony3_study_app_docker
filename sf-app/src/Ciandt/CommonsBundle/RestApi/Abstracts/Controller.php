@@ -27,7 +27,8 @@ abstract class Controller extends SymfonyController {
     if (count($errors) > 0) {
       $output = new OutputStandardService(null, false);
       foreach ($errors as $key => $error) {
-        $output->addError($error->getCode(), $error->getMessage());
+        $message = '(' . $error->getPropertyPath() . ') ' . $error->getMessage();
+        $output->addError($error->getCode(), $message);
       }
       return $output;
     }

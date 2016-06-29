@@ -1,2 +1,5 @@
 Ciandt\CommonsBundle\Entity\BlogPost.title:
-    This value should not be blank
+    This value of title should not be blank
+
+Ciandt\CommonsBundle\Entity\BlogPost.content:
+    This value of content should not be blank

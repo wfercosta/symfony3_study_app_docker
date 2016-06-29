@@ -35,17 +35,12 @@ class PostController extends Controller {
    * @Post("/posts", name="_ciandt:post_controller:add_new")
    */
   public function addNewAction(Request $request) {
-
     $entity = BlogAssemblerIn::toBlogPost($this->getSerializer(), $request->getContent());
-
     if (($output = $this->validate($entity)) != null) {
       return $this->handle($output);
     }
-
-    $entity = $this->getManager()->newElement($entity);
-    $output = new OutputStandardService($entity);
-
-    return $this->handle($output);
+    $result = $this->getManager()->createPost($entity);
+    return $this->handle(BlogAssemblerOut::toOutputStandardService($result));
   }
 
 }
