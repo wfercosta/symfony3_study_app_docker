@@ -23,11 +23,7 @@ class PostController extends Controller {
    */
   public function listAction () {
     $results = $this->getManager()->listAllPostsEntries();
-    $view = View::create();
-    $handler = $this->get('fos_rest.view_handler');
-    $view->setStatusCode(200);
-    $view->setData($results);
-    return $handler->handle($view);
+    return $this->handle($results);
   }
 
   /**
@@ -36,11 +32,7 @@ class PostController extends Controller {
   public function insertAction(Request $request) {
     $entity = $this->getAssembler()->toBlogPost($request->getContent());
     $entity = $this->getManager()->newElement($entity);
-    $view = View::create();
-    $handler = $this->get('fos_rest.view_handler');
-    $view->setStatusCode(200);
-    $view->setData($entity);
-    return $handler->handle($view);
+    return $this->handle($entity);;
   }
 
 }
