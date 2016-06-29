@@ -43,4 +43,20 @@ class PostController extends Controller {
     return $this->handle(BlogAssemblerOut::toOutputStandardService($result));
   }
 
+  /**
+   * @Get("/posts/{id}", name="_ciandt:post_controller:find_by_id")
+   */
+  public function findByIdAction($id) {
+    $result = $this->getManager()->getPostById($id);
+    return $this->handle(BlogAssemblerOut::toOutputStandardService($result));
+  }
+
+  /**
+   * @Delete("/posts/{id}", name="_ciandt:post_controller:delete")
+   */
+  public function deleteAction($id) {
+    $result = $this->getManager()->deletePost($id);
+    return $this->handle(BlogAssemblerOut::toOutputStandardService($result));
+  }
+
 }

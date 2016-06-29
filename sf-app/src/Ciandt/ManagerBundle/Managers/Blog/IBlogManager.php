@@ -12,4 +12,10 @@ interface IBlogManager {
 
   public function createPost(Entities\BlogPost $post);
 
+  public function getPostById($id);
+
+  public function deletePost($id);
+
+
+
 }
