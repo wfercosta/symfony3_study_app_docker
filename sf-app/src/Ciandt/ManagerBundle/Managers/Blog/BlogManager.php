@@ -19,7 +19,7 @@ class BlogManager extends Manager implements IBlogManager {
       $repository = $this->getRepository(IBlogManager::REPOSITORY_ENTITY_NAME_BLOG_POSTS);
       $output->setObject($repository->findAll());
     } catch (\Doctrine\DBAL\DBALException $e) {
-      $output->addError('500',
+      $output->addError($e->getCode(),
         'Unexpected failure during the manager execution',
         $e->getMessage());
     }
@@ -44,7 +44,7 @@ class BlogManager extends Manager implements IBlogManager {
       $output->setObject($post);
 
     } catch (\Doctrine\DBAL\DBALException $e) {
-      $output->addError('500',
+      $output->addError($e->getCode(),
         'Unexpected failure during the manager execution',
         $e->getMessage());
     }
