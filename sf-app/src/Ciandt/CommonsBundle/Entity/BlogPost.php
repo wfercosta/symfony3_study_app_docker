@@ -2,12 +2,15 @@
 
 namespace Ciandt\CommonsBundle\Entity;
 
+use Symfony\Component\Validator\Constraints as Assert;
+
 /**
  * BlogPost
  */
 class BlogPost
 {
     /**
+     * @Assert\NotBlank()
      * @var string
      */
     private $title;
@@ -110,4 +113,3 @@ class BlogPost
         return $this->id;
     }
 }
-

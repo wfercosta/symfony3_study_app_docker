@@ -4,6 +4,7 @@ namespace Ciandt\RestApi\BlogBundle\Controller;
 
 use Ciandt\CommonsBundle\RestApi\Abstracts\Controller;
 use Ciandt\RestApi\BlogBundle\Assembler\BlogAssemblerOut;
+use Ciandt\RestApi\BlogBundle\Assembler\BlogAssemblerIn;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -34,10 +35,17 @@ class PostController extends Controller {
    * @Post("/posts", name="_ciandt:post_controller:add_new")
    */
   public function addNewAction(Request $request) {
-    $entity = $this->getAssembler()->toBlogPost($request->getContent());
+
+    $entity = BlogAssemblerIn::toBlogPost($this->getSerializer(), $request->getContent());
+
+    if (($output = $this->validate($entity)) != null) {
+      return $this->handle($output);
+    }
+
     $entity = $this->getManager()->newElement($entity);
     $output = new OutputStandardService($entity);
-    return $this->handle($output);;
+
+    return $this->handle($output);
   }
 
 }
