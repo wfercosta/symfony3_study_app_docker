@@ -1,0 +1,4 @@
+ciandt_web:
+    resource: "@CiandtWebBundle/Controller/"
+    type:     annotation
+    prefix:   /ciandt-web

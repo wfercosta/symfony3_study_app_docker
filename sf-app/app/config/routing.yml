@@ -1,18 +1,5 @@
-company_apiv1:
-    resource: "@CompanyAPIV1BlogBundle/Controller"
-    type: rest
-    prefix:   /api/v1/blog/
-
-company_apiv1_produtos:
-    resource: "@CompanyAPIV1ProdutosBundle/Controller/"
-    type:     rest
-    prefix:   /api/v1/produtos/
-
-company_apiv1_autenticacao:
-    resource: "@CompanyAPIV1AutenticacaoBundle/Controller/"
-    type:     rest
-    prefix:   /api/v1/autorizacao/
-
-company_front_end:
-    resource: "@CompanyFrontEndBundle/Controller/"
-    type:     annotation
+ciandt_rest_api_blog_routes:
+    resource: "@CiandtRestApiBlogBundle/Resources/config/routing.yml"
+    
+ciandt_web:
+    resource: "@CiandtWebBundle/Resources/config/routing.yml"

@@ -1,0 +1,4 @@
+services:
+#    ciandt_commons.example:
+#        class: Ciandt\CommonsBundle\Example
+#        arguments: ["@service_id", "plain_value", %parameter%]

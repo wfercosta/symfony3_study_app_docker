@@ -15,15 +15,12 @@ class AppKernel extends Kernel
             new Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle(),
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
-            new Company\FrontEndBundle\CompanyFrontEndBundle(),
-            new Company\API\V1\AutenticacaoBundle\CompanyAPIV1AutenticacaoBundle(),
-            new Company\API\V1\ProdutosBundle\CompanyAPIV1ProdutosBundle(),
-            new Company\Comum\EntitiesBundle\CompanyComumEntitiesBundle(),
-            new Company\API\V1\BlogBundle\CompanyAPIV1BlogBundle(),
-            new Company\Comum\BusinessObjectsBundle\CompanyComumBusinessObjectsBundle(),
             new JMS\SerializerBundle\JMSSerializerBundle(),
             new FOS\RestBundle\FOSRestBundle(),
-            new Company\Comum\ControllerBundle\CompanyComumControllerBundle(),
+            new Ciandt\CommonsBundle\CiandtCommonsBundle(),
+            new Ciandt\ManagerBundle\CiandtManagerBundle(),
+            new Ciandt\RestApi\BlogBundle\CiandtRestApiBlogBundle(),
+            new Ciandt\WebBundle\CiandtWebBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

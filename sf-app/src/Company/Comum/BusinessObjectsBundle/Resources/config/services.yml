@@ -1,4 +1,0 @@
-services:
-   blog_post_manager:
-       class:   Company\Comum\BusinessObjectsBundle\Blog\PostManager
-       arguments: ['@doctrine']

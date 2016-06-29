@@ -1,0 +1,4 @@
+ciandt_rest_api_blog:
+    resource: "@CiandtRestApiBlogBundle/Controller/"
+    type:     rest
+    prefix:   /ciandt-api/v1/blog/

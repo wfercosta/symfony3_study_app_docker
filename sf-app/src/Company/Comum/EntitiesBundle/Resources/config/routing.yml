@@ -1,3 +1,0 @@
-company_comum_entities_homepage:
-    path:     /
-    defaults: { _controller: CompanyComumEntitiesBundle:Default:index }

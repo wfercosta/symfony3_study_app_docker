@@ -1,4 +1,0 @@
-services:
-#    company_apiv1_autenticacao.example:
-#        class: Company\API\V1\AutenticacaoBundle\Example
-#        arguments: ["@service_id", "plain_value", %parameter%]

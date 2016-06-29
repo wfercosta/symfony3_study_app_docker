@@ -1,4 +1,0 @@
-services:
-   entities.assembler:
-       class: Company\Comum\EntitiesBundle\Util\Assembler
-       arguments: ['@jms_serializer']

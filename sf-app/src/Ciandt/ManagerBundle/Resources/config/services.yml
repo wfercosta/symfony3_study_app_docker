@@ -1,0 +1,4 @@
+services:
+  ciandt-managers.blog:
+      class: Ciandt\ManagerBundle\Managers\Blog\BlogManager
+      arguments: ["@doctrine"]
