@@ -17,7 +17,7 @@ class BlogManager extends Manager implements IBlogManager {
     try {
       $repository = $this->getRepository(IBlogManager::REPOSITORY_ENTITY_NAME_BLOG_POSTS);
       $output->setObject($repository->findAll());
-    } catch (Exception $e) {
+    } catch (\Doctrine\DBAL\DBALException $e) {
       $output->addError('500',
         'Unexpected failure during the manager execution',
         $e->getMessage());
@@ -31,15 +31,18 @@ class BlogManager extends Manager implements IBlogManager {
    */
   public function createPost(Entities\BlogPost $post) {
     $output = new OutputStandardManager();
+
     try {
+
       $em = $this->getEntityManager();
-      if (empty($post->getCreatedAt())){
-        $post->setCreatedAt(new \DateTime());
-      }
+      // if (empty($post->getCreatedAt())){
+      //   $post->setCreatedAt(new \DateTime());
+      // }
       $em->persist($post);
       $em->flush();
       $output->setObject($post);
-    } catch (Exception $e) {
+
+    } catch (\Doctrine\DBAL\DBALException $e) {
       $output->addError('500',
         'Unexpected failure during the manager execution',
         $e->getMessage());

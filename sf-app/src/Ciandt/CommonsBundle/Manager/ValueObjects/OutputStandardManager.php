@@ -11,7 +11,7 @@ class OutputStandardManager {
   private $object;
 
   final public function addError($code, $message, $detail = null) {
-    $this->errors = array(
+    $this->errors[] = array(
       'code' => $code,
       'message' => $message,
       'detail' => $detail,
@@ -19,7 +19,7 @@ class OutputStandardManager {
   }
 
   final public function addWarning($code, $message) {
-    $this->warnings = array(
+    $this->warnings[] = array(
       'code' => $code,
       'message' => $message,
     );
