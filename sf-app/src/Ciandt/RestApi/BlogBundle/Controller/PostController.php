@@ -3,6 +3,7 @@
 namespace Ciandt\RestApi\BlogBundle\Controller;
 
 use Ciandt\CommonsBundle\RestApi\Abstracts\Controller;
+use Ciandt\RestApi\BlogBundle\Assembler\BlogAssemblerOut;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -14,25 +15,29 @@ use FOS\RestBundle\Controller\Annotations\Delete;
 
 class PostController extends Controller {
 
+  /**
+   * @return the manage instance used by this controller
+   */
   public function getManager() {
     return $this->get('ciandt-managers.blog');
   }
 
   /**
-   * @Get("/posts", name="blog_post_list_all")
+   * @Get("/posts", name="_ciandt:post_controller:list_all")
    */
-  public function listAction () {
+  public function listAllAction() {
     $results = $this->getManager()->listAllPostsEntries();
-    return $this->handle($results);
+    return $this->handle(BlogAssemblerOut::toOutputStandardService($results));
   }
 
   /**
-   * @Post("/posts", name="blog_post_insert")
+   * @Post("/posts", name="_ciandt:post_controller:add_new")
    */
-  public function insertAction(Request $request) {
+  public function addNewAction(Request $request) {
     $entity = $this->getAssembler()->toBlogPost($request->getContent());
     $entity = $this->getManager()->newElement($entity);
-    return $this->handle($entity);;
+    $output = new OutputStandardService($entity);
+    return $this->handle($output);;
   }
 
 }
