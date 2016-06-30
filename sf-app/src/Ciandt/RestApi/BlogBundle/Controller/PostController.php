@@ -80,13 +80,6 @@ class PostController extends Controller {
   }
 
   /**
-   * @Get("/posts/{id}/comments/{cid}", name="_ciandt:post_controller:get_post_comment_by_id")
-   */
-  public function getPostCommentByIdAction($id, $cid) {
-
-  }
-
-  /**
    * @Delete("/posts/{id}/comments/{cid}", name="_ciandt:post_controller:delete_post_comment_by_id")
    */
   public function deletePostCommentByIdAction($id, $cid) {
