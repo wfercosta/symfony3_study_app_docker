@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * BlogPost
  *
  * @ORM\Table(name="blog_post")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="Ciandt\CommonsBundle\Entity\Repositories\BlogPostRepository")
  */
 class BlogPost
 {
@@ -44,4 +44,3 @@ class BlogPost
 
 
 }
-

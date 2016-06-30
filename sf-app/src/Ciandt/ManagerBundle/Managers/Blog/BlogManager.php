@@ -79,7 +79,6 @@ class BlogManager extends Manager implements IBlogManager {
     if (($entity = $repository->find($id)) == null) {
         throw new CustomExceptions\PostNotFoundException ('Blog post with id: ' . $id . ' was not found.', 404);
     }
-
     return $entity;
   }
 
