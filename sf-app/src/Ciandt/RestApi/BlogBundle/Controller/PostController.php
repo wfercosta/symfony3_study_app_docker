@@ -59,4 +59,38 @@ class PostController extends Controller {
     return $this->handle(BlogAssemblerOut::toOutputStandardService($result));
   }
 
+  /**
+   * @Post("/posts/{id}/comments", name="_ciandt:post_controller:add_new_post_comment")
+   */
+  public function addNewPostCommentsAction(Request $request, $id) {
+    $entity = BlogAssemblerIn::toBlogComment($this->getSerializer(), $request->getContent());
+    if (($output = $this->validate($entity)) != null) {
+      return $this->handle($output);
+    }
+    $result = $this->getManager()->createPostComment($id, $entity);
+    return $this->handle(BlogAssemblerOut::toOutputStandardService($result));
+  }
+
+  /**
+   * @Get("/posts/{id}/comments", name="_ciandt:post_controller:find_all_post_comments")
+   */
+  public function listAllPostCommentsAction($id) {
+    $results = $this->getManager()->listAllPostCommentsEntries($id);
+    return $this->handle(BlogAssemblerOut::toOutputStandardService($results));
+  }
+
+  /**
+   * @Get("/posts/{id}/comments/{cid}", name="_ciandt:post_controller:get_post_comment_by_id")
+   */
+  public function getPostCommentByIdAction($id, $cid) {
+
+  }
+
+  /**
+   * @Delete("/posts/{id}/comments/{cid}", name="_ciandt:post_controller:delete_post_comment_by_id")
+   */
+  public function deletePostCommentByIdAction($id, $cid) {
+
+  }
+
 }

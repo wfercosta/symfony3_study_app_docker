@@ -106,4 +106,54 @@ class BlogManager extends Manager implements IBlogManager {
     return $output;
   }
 
+  public function createPostComment($id, Entities\BlogComment $comment) {
+
+    $output = new OutputStandardManager();
+
+    try {
+
+      $comment->setPost($this->findPostById($id));
+
+      if (empty($comment->getCreatedAt())) {
+        $comment->setCreatedAt(new \DateTime());
+      }
+
+      $em = $this->getEntityManager();
+
+      $em->persist($comment);
+      $em->flush();
+      $output->setObject($comment);
+
+    } catch (\Doctrine\DBAL\DBALException $e) {
+      $output->addError($e->getCode(),
+        'Unexpected failure during the manager execution',
+        $e->getMessage());
+    } catch (CustomExceptions\PostNotFoundException $e) {
+      $output->addError($e->getCode(),
+        $e->getMessage());
+    }
+    return $output;
+  }
+
+  public function listAllPostCommentsEntries($id) {
+    $output = new OutputStandardManager();
+    try {
+
+      $repository = $this->getRepository(IBlogManager::REPOSITORY_ENTITY_NAME_BLOG_COMMENTS);
+      
+      $query = $repository->createQueryBuilder('c')
+          ->join('c.post', 'p')
+          ->where('p.id = :id')
+          ->setParameter('id', $id)
+          ->getQuery();
+
+      $output->setObject($query->getArrayResult());
+
+    } catch (\Doctrine\DBAL\DBALException $e) {
+      $output->addError($e->getCode(),
+        'Unexpected failure during the manager execution',
+        $e->getMessage());
+    }
+    return $output;
+  }
 }
