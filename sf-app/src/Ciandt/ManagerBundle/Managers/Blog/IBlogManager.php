@@ -21,5 +21,7 @@ interface IBlogManager {
 
   public function listAllPostCommentsEntries($id);
 
+  public function deletePostComment($id, $cid);
+
 
 }

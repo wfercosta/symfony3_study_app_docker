@@ -83,7 +83,8 @@ class PostController extends Controller {
    * @Delete("/posts/{id}/comments/{cid}", name="_ciandt:post_controller:delete_post_comment_by_id")
    */
   public function deletePostCommentByIdAction($id, $cid) {
-
+      $results = $this->getManager()->deletePostComment($id, $cid);
+      return $this->handle(BlogAssemblerOut::toOutputStandardService($results));
   }
 
 }

@@ -147,4 +147,18 @@ class BlogManager extends Manager implements IBlogManager {
     }
     return $output;
   }
+
+  public function deletePostComment($id, $cid) {
+      $output = new OutputStandardManager();
+      try {
+        $repository = $this->getRepository(IBlogManager::REPOSITORY_ENTITY_NAME_BLOG_COMMENTS);
+        $output->setObject($repository->deleteComment($id, $cid));
+      } catch (\Doctrine\DBAL\DBALException $e) {
+        $output->addError($e->getCode(),
+          'Unexpected failure during the manager execution',
+          $e->getMessage());
+      }
+      return $output;
+  }
+
 }
