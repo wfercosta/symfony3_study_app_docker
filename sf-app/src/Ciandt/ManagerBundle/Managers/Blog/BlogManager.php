@@ -138,17 +138,8 @@ class BlogManager extends Manager implements IBlogManager {
   public function listAllPostCommentsEntries($id) {
     $output = new OutputStandardManager();
     try {
-
       $repository = $this->getRepository(IBlogManager::REPOSITORY_ENTITY_NAME_BLOG_COMMENTS);
-      
-      $query = $repository->createQueryBuilder('c')
-          ->join('c.post', 'p')
-          ->where('p.id = :id')
-          ->setParameter('id', $id)
-          ->getQuery();
-
-      $output->setObject($query->getArrayResult());
-
+      $output->setObject($repository->findAllByPostId($id));
     } catch (\Doctrine\DBAL\DBALException $e) {
       $output->addError($e->getCode(),
         'Unexpected failure during the manager execution',
