@@ -42,6 +42,9 @@ RUN chown root:root /tmp/setup.sh \
     && chmod 775 /tmp/setup.sh \
     && /tmp/setup.sh
 
+RUN sed -i -e 's/\r$//g' /tmp/setup.sh
+RUN sed -i -e 's/^M//g' /tmp/setup.sh
+
 ######################################################################
 # Configura o serviço de SSH
 ######################################################################
